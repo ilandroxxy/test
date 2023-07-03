@@ -16,6 +16,13 @@ async def on_startup(_):
 async def start_command(message: types.Message):
     await message.answer(text=f"Привет, {message.from_user.first_name}", reply_markup=kb)
 
+@dp.message_handler(commands=["help"])
+async def help_command(message: types.Message):
+    await message.answer(text=f"Привет, {message.from_user.first_name}")
+
+
+
+
 
 @dp.message_handler(commands=["description"])
 async def description_command(message: types.Message):
@@ -31,3 +38,4 @@ if __name__ == '__main__':
     executor.start_polling(dispatcher=dp,
                            on_startup=on_startup,
                            skip_updates=True)
+
