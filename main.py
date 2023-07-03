@@ -17,6 +17,11 @@ async def start_command(message: types.Message):
     await message.answer(text=f"Привет, {message.from_user.first_name}", reply_markup=kb)
 
 
+@dp.message_handler(commands=["description"])
+async def description_command(message: types.Message):
+    await message.answer(text=f"Привет, {message.from_user.first_name}")
+
+
 @dp.message_handler()
 async def echo(message: types.Message):
     await message.answer(message.text)
